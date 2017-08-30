@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var smtpTransport = require('nodemailer-smtp-transport');
-var config = JSON.parse(fs.readFileSync("config.json"));
+var config = JSON.parse(fs.readFileSync("config.json"));  //its optional to keep password safe
 var nodemailer = require('nodemailer');
 
 let transporter = nodemailer.createTransport({
@@ -11,6 +11,7 @@ let transporter = nodemailer.createTransport({
    auth:{
        user: 'rajpeer141@gmail.com', //your mail id
        pass: 'xxxxxxxxxxx'  //password of your account
+      //pass: config.password
    },
    tls: {
        rejectUnauthorized: false
